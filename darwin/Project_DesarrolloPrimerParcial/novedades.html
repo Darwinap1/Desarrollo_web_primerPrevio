@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novedades - La Estantería Modular</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="icon" type="image/jpg" href="./img/logo.jpg" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="main-container">
+      <div id="sidebar-placeholder"></div>
+
+      <div class="content-wrapper">
+        <main class="main-content">
+          <h2>✨ Novedades de la Semana</h2>
+          <p>
+            Bienvenido a nuestra sección de Novedades. Aquí encontrarás los
+            libros más recientes
+          </p>
+
+          <section class="novedades-grid">
+            <div class="novedades-left">
+              <div class="slider-container">
+                <div class="slider-track">
+                  <article class="slider-card">
+                    <h4>Lugares Asombrosos</h4>
+                    <p>Por: Luisito Comunica</p>
+                  </article>
+                  <article class="slider-card">
+                    <h4>El Arte de Reiniciar</h4>
+                    <p>Por: Fernanda G.</p>
+                  </article>
+                  <article class="slider-card">
+                    <h4>Recetas de Biblioteca Vintage</h4>
+                    <p>Por: Carla Torres</p>
+                  </article>
+                  <article class="slider-card">
+                    <h4>Viaje a Buenos Libros</h4>
+                    <p>Por: Mariana R.</p>
+                  </article>
+                  <article class="slider-card">
+                    <h4>Historias Asombrosas del Mundo</h4>
+                    <p>Por: Colección Verde</p>
+                  </article>
+                  <article class="slider-card">
+                    <h4>Lugares Asombrosos</h4>
+                    <p>Por: Luisito Comunica</p>
+                  </article>
+                </div>
+              </div>
+
+              <div class="wanted-book-section">
+                <h3>📚 Libro deseado para vender</h3>
+                <p>¿No encuentras tu libro ideal? Solicítalo aquí y lo buscamos para vender.</p>
+                <form id="wanted-book-form" class="wanted-book-form">
+                  <div class="form-group">
+                    <label for="wanted-title">Título del libro:</label>
+                    <input type="text" id="wanted-title" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="wanted-author">Autor (opcional):</label>
+                    <input type="text" id="wanted-author" />
+                  </div>
+                  <button type="submit" class="btn-login">Enviar solicitud</button>
+                </form>
+                <div id="wanted-list" class="wanted-list"></div>
+              </div>
+            </div>
+
+            <div class="novedades-right">
+              <article class="product-card-template">
+                <h3>Libro Más Esperado: Lugares Asombrosos</h3>
+                <p class="autor">Por: Luisito Comunica</p>
+                <img src="./img/lugares-asombrosos.jpg" alt="Portada de Lugares Asombrosos" />
+                <p>Guía visual y relatos inspiradores.</p>
+                <span class="price">$25.500</span>
+                <button class="add-to-cart-btn">Añadir al Carrito</button>
+              </article>
+              <p class="historias-text">Historias Asombrosas del Mundo</p>
+            </div>
+          </section>
+        </main>
+        <div id="footer-placeholder"></div>
+      </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>

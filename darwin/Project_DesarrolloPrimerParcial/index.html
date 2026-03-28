@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    
+    <link rel="icon" type="image/jpg" href="./img/logo.jpg"> 
+    
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="main-container">
+        
+        <div id="sidebar-placeholder"></div>
+
+        <div class="content-wrapper">
+            
+            <div id="header-placeholder"></div>
+
+            <main class="main-content">
+                
+                <h2 class="section-title" id="novedades">Novedades</h2>
+                <div id="product-list-novedades" class="product-list">
+                    </div>
+
+                <h2 class="section-title" id="seccion-historia">Historia</h2>
+                <div id="product-list-historia" class="product-list">
+                    </div>
+
+                <h2 class="section-title" id="seccion-ciencia-ficcion">Ciencia Ficción</h2>
+                <div id="product-list-ciencia" class="product-list">
+                    </div>
+
+            </main>
+
+            <div id="footer-placeholder"></div>
+        </div>
+    </div>
+
+    <template id="product-template">
+        <article class="product-card-template">
+            <img data-target="imagen-url" src="placeholder.jpg" alt="Portada de libro">
+            
+            <h3 data-target="nombre">Título del Libro</h3>
+            <p class="autor" data-target="autor">Autor:</p>
+            
+            <p data-target="descripcion">Descripción corta del libro...</p>
+            
+            <span class="price" data-target="precio">$0.00</span>
+            
+            <button class="add-to-cart-btn">Añadir al Carrito</button>
+        </article>
+    </template>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,594 @@
+:root {
+    /* PALETA PROFESIONAL DE LIBRERÍA (FINAL Y ARMONIOSA)
+       - Define variables de color globales 
+       - Facilita cambios estéticos globales en un solo lugar
+       - Valores usados por encabezados, fondo, botones y textos */
+    --color-primary: #4A3522;       /* Marrón Café Oscuro - Base (Headers, texto fuerte) */
+    --color-background-page: #EDE9D8; /* Beige Tostado - FONDO DE PÁGINA */
+    --color-background-card: #FFFFFF; /* Blanco Puro - Fondo de Tarjetas y Formulario (Contraste) */
+    --color-accent: #C89759;        /* Dorado Envejecido - Énfasis (Precios, Botones de producto) */
+    --color-danger: #8B0000;        /* Rojo Burdeos Elegante - Para el botón de Carrito/CTAs */
+    
+    --color-text-dark: #333;         /* Texto principal sobre fondos claros */
+    --color-text-light: #ffffff;     /* Texto secundario sobre fondos oscuros */ 
+    --color-light-gray: #e0e0e0;     /* Bordes y elementos neutros */ 
+}
+
+/* ====================================
+   ESTRUCTURA BASE - contenedores principales y tipografía
+   ==================================== */
+
+/* body: establece la base visual de todo el documento
+   - tipografía clásica de librería
+   - margenes eliminados para que el layout ocupe toda la ventana
+   - color de fondo principal y texto de lectura */
+body {
+    font-family: Georgia, serif; 
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background-page); 
+    color: var(--color-text-dark);
+}
+
+/* main-container: layout principal horizontal con sidebar + contenido
+   - min-height 100vh: altura completa del viewport */
+.main-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* content-wrapper: agrupa header + main + footer en columna
+   - flex-grow 1 para ocupar todo el espacio restante */
+.content-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* main-content: zona de contenido principal
+   - padding cómodo para separar de bordes */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* ====================================
+   HEADER Y LOGO
+   ==================================== */
+/* Main header: barra superior de navegación/resumen de marca */
+.main-header {
+    background-color: var(--color-primary); 
+    color: var(--color-text-light);
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); 
+}
+
+/* Header content: contenedor ancho centrado y distribución horizontal */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contenedor del logo y texto de sitio */
+.logo-container {
+    display: flex;
+    align-items: center; 
+}
+
+/* Logo: tamaño fijo en altura, escalado proporcional */
+.site-logo {
+    height: 40px; 
+    width: auto;
+    margin-right: 15px; 
+    vertical-align: middle;
+}
+
+/* Título: estilo tipográfico de marca en header */
+.site-title-display {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 500;
+    color: var(--color-text-light); 
+}
+
+/* Barra de búsqueda: input + botón con esquinas combinadas */
+.search-bar input[type="search"] {
+    padding: 8px 10px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 4px 0 0 4px;
+    width: 250px;
+}
+
+.search-bar button {
+    background-color: var(--color-accent); 
+    color: var(--color-primary); 
+    padding: 8px 10px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* botón para menú hamburguesa en móvil, oculto en escritorio */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+/* Botón de Carrito (Header) - Burdeos Elegante */
+.cart-button-header {
+    background-color: var(--color-danger); 
+    color: white; 
+    font-weight: bold;
+    padding: 10px 18px; 
+    border-radius: 6px; 
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.1s;
+    border: none;
+    margin-left: 15px; 
+    display: inline-block;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); 
+}
+
+.cart-button-header:hover {
+    /* Hover: color más oscuro y sutil escalado para llamada de atención */
+    background-color: #6d0000; 
+    transform: scale(1.05); 
+}
+
+
+/* ====================================
+    SIDEBAR
+    ==================================== */
+/* main-sidebar: navegación lateral fija
+   - color ligero para separar del contenido
+   - ancho fijo para consistencia en pantallas grandes
+   - transition para animación en mobile (despliegue) */
+.main-sidebar {
+    background-color: #F8F4EC; 
+    width: 220px;
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* título de sección del menú del sidebar */
+.sidebar-title {
+    color: var(--color-primary); 
+    padding: 10px 20px 5px;
+    margin: 15px 0 5px;
+    border-bottom: 1px solid var(--color-accent); 
+}
+
+.sidebar-menu {
+    /* lista de links del menú lateral: sin viñetas */
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li a {
+    /* enlaces como bloques completos para área clicable amplia */
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: background-color 0.2s;
+}
+
+.sidebar-menu li a:hover {
+    /* feedback visual hover de link activo */
+    background-color: #E0DBC8; 
+    color: var(--color-primary);
+}
+
+
+/* ====================================
+    FOOTER
+    ==================================== */
+/* footer: pie de página con fondo primario y texto claro */
+.main-footer {
+    background-color: var(--color-primary); 
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; 
+}
+
+
+/* ====================================
+    LOGIN (Estilo Profesional)
+    ==================================== */
+
+/* login-container: tarjeta de formulario centrada */
+.login-container {
+    max-width: 400px; 
+    margin: 10vh auto; 
+    padding: 30px; 
+    background: var(--color-background-card); 
+    border-radius: 10px; /* Esquinas ligeramente más redondeadas */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más profunda */
+    border: 1px solid var(--color-primary); /* Borde sutil del color primario */
+    position: relative;
+}
+
+.login-container h2 {
+    color: var(--color-primary); 
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2em; /* Título más grande */
+    font-family: Georgia, serif; 
+    border-bottom: 3px solid var(--color-accent); /* Línea dorada más gruesa */
+    padding-bottom: 15px;
+}
+
+.form-group label {
+    /* Etiquetas de campos de formulario */
+    color: var(--color-primary); 
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    /* Inputs con ancho total y espacio interno cómodo */
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Toque de color: foco de input que hace más visible selección */
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: var(--color-accent); 
+    box-shadow: 0 0 0 2px rgba(200, 151, 89, 0.4);
+}
+
+/* Botón de ingreso principal en formulario */
+.btn-login {
+    background-color: var(--color-primary); 
+    color: var(--color-text-light);
+    width: 100%;
+    padding: 15px; /* Botón más grande */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para efecto de levantamiento */
+}
+
+.btn-login:hover {
+    /* Interacción táctil: pequeño desplazamiento y sombreado intensificado */
+    background-color: #3b2a1e; 
+    transform: translateY(-2px); /* Efecto de "levantamiento" */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Mensaje de validación de errores */
+.error-message {
+    color: var(--color-danger); 
+}
+
+.success-message {
+    color: #1f7a5a;
+    font-weight: bold;
+}
+
+.shake-error {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Animación de sacudida (shake) usada en el formulario de login para errores */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+
+/* ====================================
+    SECCIONES Y PRODUCTOS
+    ==================================== */
+
+/* Títulos de secciones (novedades, catálogo, etc.) */
+.section-title {
+    color: var(--color-primary); 
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--color-accent); 
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+/* Lista de productos (grid adaptable) */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Estilos para Tarjeta (Web Component y Template) */
+.card, 
+.product-card-template {
+    display: flex;
+    flex-direction: column; 
+    height: 100%; 
+    
+    border: 1px solid var(--color-light-gray);
+    padding: 15px;
+    border-radius: 8px;
+    background-color: var(--color-background-card); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+/* Hover de la tarjeta: elevación visual para interacción */
+.card:hover,
+.product-card-template:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15); 
+}
+
+/* Título del producto / libro dentro de tarjeta */
+.card h3,
+.product-card-template h3 {
+    color: var(--color-primary);
+    margin: 5px 0 0;
+    font-size: 1.2em;
+}
+
+/* Autor del libro o item: estilo distante y legible */
+.card .autor,
+.product-card-template .autor {
+    font-style: italic;
+    color: #6d6d6d;
+    margin: 5px 0 10px;
+}
+
+/* Precio: color resaltado y peso visual */
+.card .price,
+.product-card-template .price {
+    color: var(--color-accent); 
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+    margin-top: auto; 
+    padding-top: 10px;
+}
+
+/* Botones de carrito en las tarjetas */
+/* Botón de agregar al carrito en cada tarjeta */
+.add-to-cart-btn,
+.card button {
+    background-color: var(--color-accent); 
+    color: var(--color-primary);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.add-to-cart-btn:hover,
+.card button:hover {
+    /* Hover simple para botones de acción */
+    background-color: #a77c47; 
+}
+
+
+/* Imágenes en tarjetas: tamaño controlado y ajuste dentro de contenedor */
+.card img,
+.product-card-template img,
+product-card img {
+    max-width: 100%; 
+    width: auto;
+    height: 180px; 
+    object-fit: contain; 
+    display: block;
+    margin: 0 auto 10px auto; 
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; 
+}
+
+
+/* ===========================================
+   ANIMACIÓN Y RESPONSIVE DESIGN
+   =========================================== */
+
+/* Animación de error en Login */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+.login-container.shake-error {
+    animation: shake 0.4s ease-in-out;
+    box-shadow: 0 10px 30px rgba(196, 154, 101, 0.5), 
+                0 0 0 3px var(--color-accent);
+}
+
+/* Media Queries (Móviles) */
+@media (max-width: 768px) {
+    
+    .main-container {
+        flex-direction: column;
+    }
+
+    .header-content {
+        justify-content: flex-start;
+    }
+    
+    .search-bar {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    
+    .site-title-display {
+        font-size: 1.5em; /* Reducir el título en móvil */
+    }
+
+    /* Sidebar se convierte en menú deslizable */
+    .main-sidebar {
+        width: 250px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        transform: translateX(-100%);
+        padding-top: 60px;
+    }
+
+    .main-sidebar.is-open {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .login-container {
+        margin: 5vh 10px; 
+        padding: 20px;
+    }
+    
+    .product-list {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+}
+
+.login-hint {
+    color: #555;
+    font-size: 0.9em;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.wanted-book-section {
+    background: #fff; 
+    border: 1px solid #d4c9b4;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.wanted-book-section h3 {
+    color: var(--color-primary);
+    margin-bottom: 12px;
+}
+
+.wanted-list {
+    margin-top: 20px;
+    border-top: 1px solid var(--color-light-gray);
+    padding-top: 20px;
+}
+
+.wanted-list .wanted-item {
+    margin-bottom: 12px;
+    background: #f7f3eb;
+    border: 1px dotted var(--color-accent);
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.novedades-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+.novedades-left, .novedades-right {
+    flex: 1 1 380px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider-container {
+    overflow: hidden;
+    border: 1px solid #d8c7a8;
+    border-radius: 10px;
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.slider-track {
+    display: flex;
+    gap: 16px;
+    animation: slide-left 16s linear infinite;
+}
+
+.slider-card {
+    flex: 0 0 170px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 10px;
+    background: #fdf9f2;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slider-card h4 {
+    margin: 0 0 4px;
+    font-size: 1em;
+    color: var(--color-primary);
+}
+
+@keyframes slide-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-45%); }
+}
+
+.historias-text {
+    margin-top: 20px;
+    font-size: 1.05em;
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
